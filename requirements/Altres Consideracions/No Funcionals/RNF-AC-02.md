@@ -4,7 +4,7 @@
 > RNF-AC-02
 
 - ### **Tipus i Categoria**
-> No Funcional. Restricció de disseny, limitació de hardware.
+> No Funcional – Restricció de disseny, limitació de hardware
 
 - ### **Versió** 
 > 1.0
