@@ -10,7 +10,7 @@
 > 1.0
 
 - ### **Títol**
-> Idiomes.
+> Idiomes
 
 - ### **Descripció:** 
 > L'usuari ha de poder utilitzar l'aplicació en tres idiomes disponibles: català, castellà i anglès.
