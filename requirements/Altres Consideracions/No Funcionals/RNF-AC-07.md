@@ -4,7 +4,7 @@
 > RNF-AC-07
 
 - ### **Tipus i Categoria**
-> No Funcional. Objectiu de disseny.
+> No Funcional – Objectiu de disseny
 
 - ### **Versió** 
 > 1.0
