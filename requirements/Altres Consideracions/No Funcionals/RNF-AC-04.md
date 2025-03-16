@@ -4,7 +4,7 @@
 > RNF-AC-04
 
 - ### **Tipus i Categoria**
-> No Funcional. Requisit estàtic.
+> No Funcional – Requisit estàtic
 
 - ### **Versió** 
 > 1.0
