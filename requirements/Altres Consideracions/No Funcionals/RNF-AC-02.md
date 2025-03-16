@@ -10,7 +10,7 @@
 > 1.0
 
 - ### **Títol**
-> Versions web i mòbil, Android i iOS.
+> Versions web i mòbil, Android i iOS
 
 - ### **Descripció:** 
 > L'aplicació ha de tenir compatibilitat total en web i mòbil, suportant els sistemes operatius Android i iOS.
