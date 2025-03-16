@@ -1,0 +1,22 @@
+# **Requeriment**
+
+### **ID:**  
+> RF-2-04
+
+### **Tipus i Categoria**  
+> Funcional – Realització de comandes
+
+### **Versió**  
+> 1.0
+
+### **Títol**  
+> Límits de comandes actives
+
+### **Descripció:**  
+> Un usuari no pot tenir més de tres comandes actives simultàniament per garantir la disponibilitat del servei.
+
+### **Relacions**  
+> Encara no hem pogut establir les relacions entre els diferents requisits.
+
+### **Comentaris:**  
+---
