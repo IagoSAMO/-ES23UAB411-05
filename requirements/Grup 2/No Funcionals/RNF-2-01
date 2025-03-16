@@ -1,1 +1,24 @@
+# **Requisit**
+
+- ### **ID:**  
+> RNF-2-01  
+
+- ### **Tipus i Categoria**  
+> No Funcional  
+> **Restriccions estàtiques**
+
+- ### **Versió**  
+> 1.0  
+
+- ### **Títol**  
+> Màxim de comandes simultànies  
+
+- ### **Descripció:**  
+> Un client no podrà tenir més de 3 comandes actives simultàniament, per evitar sobrecàrrega del sistema i garantir que els repartidors puguin atendre les comandes de manera eficient.  
+
+- ### **Relacions**  
+> Per el moment no s'han pogut establir relacions.  
+
+- ### **Comentaris:**  
+> Aquesta limitació té en ment garantir el correcte fucnionament del sistema.  
 
