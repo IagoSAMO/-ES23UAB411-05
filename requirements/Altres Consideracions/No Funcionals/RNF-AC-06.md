@@ -4,7 +4,7 @@
 > RNF-AC-06
 
 - ### **Tipus i Categoria**
-> No Funcional. Requisit sobre la interfície externa.
+> No Funcional – Requisit sobre la interfície externa
 
 - ### **Versió** 
 > 1.0
