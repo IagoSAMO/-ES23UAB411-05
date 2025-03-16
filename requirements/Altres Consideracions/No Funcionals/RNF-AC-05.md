@@ -4,7 +4,7 @@
 > RNF-AC-05
 
 - ### **Tipus i Categoria**
-> No Funcional. Requisit dinàmic.
+> No Funcional – Requisit dinàmic
 
 - ### **Versió** 
 > 1.0
