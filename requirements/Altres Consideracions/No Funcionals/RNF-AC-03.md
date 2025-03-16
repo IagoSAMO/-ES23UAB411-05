@@ -4,7 +4,7 @@
 > RNF-AC-03
 
 - ### **Tipus i Categoria**
-> No Funcional. Decisió de disseny.
+> No Funcional – Decisió de disseny
 
 - ### **Versió** 
 > 1.0
