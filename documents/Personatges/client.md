@@ -3,13 +3,13 @@
 - ### **Versió:**
 > 1.0
 
-- ### **Data**
+- ### **Data:**
 > 6-4-2025
 
-- ### **Autor** 
+- ### **Autor:** 
 > Arnau Casals
 
-- ### **Descripció**
+- ### **Descripció:**
 > El client és l'usuari principal de l'aplicació QueMenges. Pot consultar menús, fer comandes a cuiners segons les seves preferències alimentàries i la seva ubicació, fer el seguiment dels seus encàrrecs i valorar el servei rebut. També pot gestionar el seu perfil i subscriure's a serveis especials.
 
 - ### **Actors relacionats:** 
