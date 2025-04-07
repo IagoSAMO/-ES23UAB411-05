@@ -1,4 +1,4 @@
-# **Cas d'ús: {NOM CAS D'ÚS}**
+# **Personatge: {NOM CAS D'ÚS}**
 
 - ### **Versió:**
 > -
