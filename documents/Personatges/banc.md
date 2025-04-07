@@ -25,7 +25,7 @@
 > - Confirmació i notificació del pagament als usuaris implicats.
 
 - ### **Fluxos alternatius:** 
-> - En cas de fallida en el pagament, es mostra un missatge d'error i s'ofereix la possibilitat de reintentar la transacció.
+> - En cas de fallida en el pagament --> Es mostra un missatge d'error i s'ofereix la possibilitat de reintentar la transacció.
 
 - ### **Prioritat:** 
 > Normal. És qui s'encarrega de realitzar les transaccions entre client, cuiner i repartidor.
