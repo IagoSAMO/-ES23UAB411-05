@@ -25,16 +25,16 @@
 > 7. Rep el plat i valora l’experiència.
 
 - ### **Subfluxos:** 
-> Modificació de perfil.
-> Consulta i repetició de comandes anteriors.
-> Comunicació amb el cuiner mitjançant el xat.
-> Reserva amb cuiners no disponibles.
-> Subscriure's al pla de punts i enviaments gratuïts.
+> - Modificació de perfil.
+> - Consulta i repetició de comandes anteriors.
+> - Comunicació amb el cuiner mitjançant el xat.
+> - Reserva amb cuiners no disponibles.
+> - Subscriure's al pla de punts i enviaments gratuïts.
 
 - ### **Fluxos alternatius:** 
-> Error en el pagament --> El sistema mostra un missatge i permet reintentar.
-> El cuiner rebutja la comanda --> Es notifica al client i se li ofereixen alternatives.
-> El repartidor no està disponible --> S'ofereix recollida o cuiner com a alternativa.
+> - Error en el pagament --> El sistema mostra un missatge i permet reintentar.
+> - El cuiner rebutja la comanda --> Es notifica al client i se li ofereixen alternatives.
+> - El repartidor no està disponible --> S'ofereix recollida o cuiner com a alternativa.
 
 - ### **Prioritat:** 
 > Alta. El client és la peça central del servei i una bona experiència és necessària per l'èxit de la plataforma.
