@@ -1,13 +1,13 @@
-# **Cas d'ús: {NOM CAS D'ÚS}**
+# **Cas d'ús: CLIENT**
 
 - ### **Versió:**
-> -
+> 1
 
 - ### **Data**
-> -
+> 6-4-2025
 
 - ### **Autor** 
-> -
+> Arnau Casals
 
 - ### **Descripció**
 > -
