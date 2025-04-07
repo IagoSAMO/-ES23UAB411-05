@@ -3,13 +3,13 @@
 - ### **Versió:**
 > 1.0
 
-- ### **Data**
+- ### **Data:**
 > 6-4-2025
 
-- ### **Autor** 
+- ### **Autor:** 
 > Arnau Casals
 
-- ### **Descripció**
+- ### **Descripció:**
 > El cuiner és l'usuari que ofereix els seus plats i menús a través de l'aplicació QueMenges. És responsable de publicar la seva oferta gastronòmica, gestionar la disponibilitat per rebre comandes i, eventualment, comunicar-se amb els clients per ajustar detalls de les comandes, incloent modificacions d'ingredients opcionals.
 
 - ### **Actors relacionats:** 
