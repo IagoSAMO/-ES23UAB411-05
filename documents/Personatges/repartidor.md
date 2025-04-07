@@ -3,19 +3,16 @@
 - ### **Versió:**
 > -
 
-- ### **Data**
+- ### **Data:**
 > -
 
-- ### **Autor** 
+- ### **Autor:** 
 > -
 
-- ### **Descripció**
+- ### **Descripció:**
 > -
 
-- ### **Actors:** 
-> -
-
-- ### **Precondició** 
+- ### **Actors relacionats:** 
 > -
 
 - ### **Flux principal:** 
@@ -25,12 +22,6 @@
 > -
 
 - ### **Fluxos alternatius:** 
-> -
-
-- ### **Postcondició:** 
-> -
-
-- ### **Requeriments no funcionals:** 
 > -
 
 - ### **Prioritat:** 
