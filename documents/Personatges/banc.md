@@ -3,13 +3,13 @@
 - ### **Versió:**
 > 1.0
 
-- ### **Data**
+- ### **Data:**
 > 6-4-2025
 
-- ### **Autor** 
+- ### **Autor:** 
 > Arnau Casals
 
-- ### **Descripció**
+- ### **Descripció:**
 > El banc és el sistema encarregat de gestionar els pagaments dins l'aplicació, assegurant transaccions segures entre els clients, cuiners i repartidors.
 
 - ### **Actors relacionats:** 
