@@ -1,9 +1,8 @@
-# 🛒 QuèMenges: Menjar casolà a un clic
+# 🛒 **QuèMenges**: Menjar casolà a un clic de distància
 
 Aquest projecte forma part de l'assignatura **Enginyeria del Software** del **Grau en Enginyeria Informàtica** de la **Universitat Autònoma de Barcelona (UAB)**, curs 2024-2025. Està creat per el **subgrup 5** del **grup 411** de l'assignatura. 
 
 ## 👥 Autors
-
 - 1633884 - Adrià Gil Martínez
 - 1708531 - Lluc Aymerich Medina
 - 1708087 - Arnau Casals i Martínez
@@ -11,9 +10,9 @@ Aquest projecte forma part de l'assignatura **Enginyeria del Software** del **Gr
 
 ## 📌 Descripció del projecte
 
-**QuèMenges** neix amb la voluntat de connectar persones amants de la cuina amb aquells que busquen plats casolans, sans, autèntics i nostrats, fugint de les grans plataformes i apostant pel tracte proper i de proximitat.
-
-Amb QuèMenges, qualsevol usuari pot oferir els seus plats i receptes, i qualsevol client pot descobrir menús variats i gustosos, preparats a mà per cuiners del barri.
+>**QuèMenges** neix amb la voluntat de connectar persones amants de la cuina amb aquells que busquen plats casolans, sans, autèntics i nostrats, fugint de les grans plataformes i apostant pel tracte proper i de proximitat.
+>
+>Amb la nostra aplicació, qualsevol cuiner certificat i registrat pot oferir els seus plats i receptes, i qualsevol client pot descobrir menús variats i gustosos, preparats a mà per cuiners del barri.
 
 ## 🧠 Metodologia
 
