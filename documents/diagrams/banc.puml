@@ -1,0 +1,36 @@
+@startuml
+skinparam actorStyle Hollow 
+
+actor "Usuari" as US
+actor "Client" as CL
+actor "Cuiner" as CK
+actor "Repartidor" as RP
+actor "Banc" as EB
+
+US <|-- CL
+US <|-- RP
+US <|-- CK
+
+
+usecase A1 as "Autentificació i realització pagament"
+usecase A2 as "Repartir fons"
+
+CL-right->(Tria del mètode de pagament)
+(Tria del mètode de pagament)-right->(Fa pagament)
+(Fa pagament)-->EB 
+EB-down->(A1)
+
+note left of A1 : El resultat de la confirmació pot ser\npositiu o negatiu.
+(A1)-->(Enviar notificació)
+(Enviar notificació)-->CL
+
+note "Només es procedeix\n si el resultat és positiu" as N2
+(Enviar notificació)-->N2
+N2-->A2
+(A2)-->RP
+(A2)-->CK
+
+(Fa pagament) .> (Autentificació i realització pagament) : <<include>>
+(Enviar notificació) .> (Notificació) : <<include>>
+(A2) .> (Notificació) : <<extend>>
+@enduml
