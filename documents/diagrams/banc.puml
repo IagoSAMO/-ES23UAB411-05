@@ -22,7 +22,7 @@ EB-down->(A1)
 
 note left of A1 : El resultat de la confirmació pot ser\npositiu o negatiu.
 (A1)-->(Enviar notificació)
-(Enviar notificació)-->CL
+CL-->(Enviar notificació)
 
 note "Només es procedeix\n si el resultat és positiu" as N2
 (Enviar notificació)-->N2
