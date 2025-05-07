@@ -1,0 +1,129 @@
+@startuml
+skinparam actorStyle Hollow
+
+actor "Usuari" as US
+actor "Client" as CL
+actor "Repartidor" as RP
+actor "Cuiner" as CK
+actor "Google Maps" as GM
+actor "Banc" as EB
+
+US <|-- CL
+US <|-- RP
+
+usecase "Notificació" as N
+usecase "Actualització en temps real de la posició" as A1
+usecase "Notificació d'aproximació al destí" as A2
+usecase "Confirmació d'entrega" as A3
+usecase "Assignació a un altre repartidor" as A4
+usecase "Valoració del servei" as A5
+usecase "Proposta d'alternatives" as A6
+usecase "Publicar plats i menús diaris" as A7
+usecase "Modificar llista plats" as A8
+usecase "Visualitzar comandes actives" as A9
+usecase "Xatejar amb el client" as A10
+usecase "Aceptar o rebutjar comandes" as A11
+usecase "Finalitzar preparació" as A12
+usecase "Notificar repartidor" as A13
+usecase "Notificar client" as A14
+usecase "Autentificació i realització pagament" as A15
+usecase "Repartir fons" as A16
+
+N <|-- A2
+N <|-- A13
+N <|-- A14
+
+CL --> (Sol·licita seguiment d'entrega)
+(Sol·licita seguiment d'entrega) --> (Mostra ubicació repartidor)
+(Mostra ubicació repartidor) --> GM
+RP --> (Comparteix ubicació)
+(Comparteix ubicació) --> GM
+GM --> A1
+A1 --> (Traça ruta òptima)
+(Traça ruta òptima) --> (Mostra en pantalla)
+(Mostra en pantalla) --> CL
+(Mostra en pantalla) --> A2
+A2 --> CL
+
+RP --> (Rep notificació de comanda)
+(Rep notificació de comanda) --> CK
+(Rep notificació de comanda) --> (Accepta entrega)
+(Accepta entrega) --> (Inicia navegació)
+(Inicia navegació) --> GM
+RP --> (Actualitza estat entrega)
+(Actualitza estat entrega) --> (Mostra progrés)
+(Mostra progrés) --> CL
+(Inicia navegació) --> (Segueix ruta)
+(Segueix ruta) --> (Arriba al destí)
+(Arriba al destí) --> A3
+A3 --> (Finalitza servei)
+(Finalitza servei) --> RP
+(Finalitza servei) --> (Notifica client)
+(Notifica client) --> CL
+(Arriba al destí) --> (No pot entregar)
+(No pot entregar) --> A4
+A4 --> (Contacta suport)
+A4 --> (Reassigna comanda)
+(Reassigna comanda) --> (Rep notificació de comanda)
+
+CL --> (Es registra a l'aplicació)
+(Es registra a l'aplicació) --> (Crea perfil)
+(Es registra a l'aplicació) --> (Consulta menús)
+(Consulta menús) --> CK
+CL --> (Selecciona plats)
+(Selecciona plats) --> (Escull opció d'enviament)
+(Escull opció d'enviament) --> (Realitza pagament)
+(Realitza pagament) --> EB
+(Realitza pagament) --> (Pagament correcte)
+(Pagament correcte) --> (Segueix enviament)
+(Segueix enviament) --> GM
+(Segueix enviament) --> (Rep comanda)
+(Rep comanda) --> A5
+A5 --> (Finalitza procés)
+(Finalitza procés) --> CL
+(Realitza pagament) --> (Error de pagament)
+(Error de pagament) --> (Reintenta pagament)
+(Reintenta pagament) --> (Realitza pagament)
+(Consulta menús) --> (Cuiner no disponible)
+(Cuiner no disponible) --> A6
+A6 --> (Ofereix altres cuiners)
+A6 --> (Reserva per més tard)
+(Ofereix altres cuiners) --> (Consulta menús)
+(Reserva per més tard) --> CL
+CL --> (Modifica perfil)
+CL --> (Consulta historial)
+CL --> (Xateja amb cuiner)
+(Xateja amb cuiner) --> CK
+CL --> (Es subscriu al pla)
+(Es subscriu al pla) --> EB
+CK --> A7
+A8 --> A7
+CK --> A8
+CK --> A9
+CL --> A10
+CK --> A10
+CK --> A11
+A11 --> A9
+CK --> A12
+A12 --> A11
+A12 --> A13
+A13 --> RP
+A12 --> A14
+A14 --> CL
+
+CL --> (Tria del mètode de pagament)
+(Tria del mètode de pagament) --> (Fa pagament)
+(Fa pagament) --> EB
+EB --> A15
+A15 --> (Enviar notificació)
+(Enviar notificació) --> CL
+(Enviar notificació) --> A16
+A16 --> RP
+A16 --> CK
+
+(Realitza pagament) .> (Autentificació i realització pagament) : <<include>>
+(Rep comanda) .> (Valoració del servei) : <<extend>>
+(Consulta menús) .> (Proposta d'alternatives) : <<extend>>
+(Rep notificació de comanda) .> (Notificar repartidor) : <<include>>
+(Rep notificació de comanda) .> (Notificar client) : <<include>>
+@enduml
