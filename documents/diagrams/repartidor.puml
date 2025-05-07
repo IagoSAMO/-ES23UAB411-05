@@ -1,0 +1,50 @@
+@startuml
+skinparam actorStyle Hollow 
+
+actor "Usuari" as US
+actor "Client" as CL
+actor "Repartidor" as RP
+actor "Cuiner" as CK
+actor "Google Maps" as GM
+
+US <|-- CL
+US <|-- RP
+
+
+usecase A1 as "Confirmació d'entrega"
+usecase A2 as "Assignació a un altre repartidor"
+
+RP-right->(Rep notificació de comanda)
+(Rep notificació de comanda)<--CK
+(Rep notificació de comanda)-right->(Accepta entrega)
+(Accepta entrega)-right->(Inicia navegació)
+(Inicia navegació)-->GM
+
+RP-down->(Actualitza estat entrega)
+(Actualitza estat entrega)-->(Mostra progrés)
+(Mostra progrés)-->CL
+
+(Inicia navegació)-->(Segueix ruta)
+(Segueix ruta)-->(Arriba al destí)
+(Arriba al destí)-->A1
+
+note left of A1 : La confirmació implica obtenir\nla signatura del client o\nuna foto de l'entrega.
+
+(A1)-->(Finalitza servei)
+(Finalitza servei)-->RP
+(Finalitza servei)-->(Notifica client)
+(Notifica client)-->CL
+
+note bottom : Si no és possible fer l'entrega
+(Arriba al destí)-->(No pot entregar)
+(No pot entregar)-->A2
+(A2)-->(Contacta suport)
+(A2)-->(Reassigna comanda)
+(Reassigna comanda)-->(Rep notificació de comanda)
+
+note right of A2 : El repartidor ha de justificar\nel motiu pel qual no pot\nrealitzar l'entrega.
+
+(Rep notificació de comanda) .> (Notificació) : <<include>>
+(Finalitza servei) .> (Notificació) : <<include>>
+(A2) .> (Notificació) : <<extend>>
+@enduml
