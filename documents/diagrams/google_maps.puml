@@ -1,0 +1,39 @@
+@startuml
+skinparam actorStyle Hollow 
+
+actor "Usuari" as US
+actor "Client" as CL
+actor "Repartidor" as RP
+actor "Google Maps" as GM
+
+US <|-- CL
+US <|-- RP
+
+
+usecase A1 as "Actualització en temps real de la posició"
+usecase A2 as "Notificació d'aproximació al destí"
+
+CL-right->(Sol·licita seguiment d'entrega)
+(Sol·licita seguiment d'entrega)-right->(Mostra ubicació repartidor)
+(Mostra ubicació repartidor)-->GM
+
+RP-down->(Comparteix ubicació)
+(Comparteix ubicació)-->GM
+GM-down->(A1)
+
+note left of A1 : L'actualització de posició es fa\ncada 10 segons o 50 metres recorreguts.
+
+(A1)-->(Traça ruta òptima)
+(Traça ruta òptima)-->(Mostra en pantalla)
+(Mostra en pantalla)-->CL
+
+note right : Si no es pot accedir a la ubicació en temps real,\nes mostra estimació basada en comanda
+
+(Mostra en pantalla)-->A2
+(A2)-->CL
+
+note right of A2 : Es notifica al client quan\nel repartidor està a menys\nde 5 minuts del destí.
+
+A1 .> (Notificació) : <<include>>
+A2 .> (Notificació) : <<extend>>
+@enduml
