@@ -1,0 +1,44 @@
+@startuml
+skinparam actorStyle Hollow
+actor "Usuari" as US
+actor "Client" as CL
+actor "Repartidor" as RP
+actor "Cuiner" as CK
+US <|-- CL
+US <|-- RP
+US <|-- CK
+
+usecase UC1 as "Publicar plats i menús diaris"
+usecase UC2 as "Modificar llista plats"
+usecase UC3 as "Visualitzar comandes actives"
+usecase UC4 as "Xatejar amb el client"
+usecase UC5 as "Aceptar o rebutjar comandes"
+usecase UC6 as "Finalitzar preparació"
+usecase UC7 as "Notificar repartidor"
+usecase UC8 as "Notificar client"
+usecase "Notificació" as N
+CK --> UC2
+CK --> UC1
+CK --> UC3
+UC4 --> UC3
+CL --> UC4
+CK --> UC4
+UC5 --> UC3
+CK --> UC5
+note right of UC5
+Les comandes poden contenir
+elements modificats o no tenir-ne.
+end note
+UC6 --> UC5
+CK --> UC6
+UC7 --> UC6
+UC7 --> RP
+UC8 --> UC6
+UC8 --> CL
+CK --> (Rep notificació de comanda)
+(Rep notificació de comanda) .> UC7 : <<include>>
+(Rep notificació de comanda) .> UC8 : <<include>>
+(Rep notificació de comanda) .> N : <<include>>
+RP --> (Finalitza servei)
+(Finalitza servei) .> N : <<include>>
+@enduml
