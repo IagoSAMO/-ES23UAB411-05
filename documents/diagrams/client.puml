@@ -1,0 +1,68 @@
+@startuml
+skinparam actorStyle Hollow 
+
+actor "Usuari" as US
+actor "Client" as CL
+actor "Cuiner" as CK
+actor "Banc" as BA
+actor "Google Maps" as GM
+
+US <|-- CL
+
+
+usecase A1 as "Valoració del servei"
+usecase A2 as "Proposta d'alternatives"
+
+CL-right->(Es registra a l'aplicació)
+(Es registra a l'aplicació)-right->(Crea perfil)
+(Crea perfil)-right->(Consulta menús)
+(Consulta menús)-->CK
+
+CL-down->(Selecciona plats)
+(Selecciona plats)-->(Escull opció d'enviament)
+(Escull opció d'enviament)-->(Realitza pagament)
+(Realitza pagament)-->BA
+
+note left of (Realitza pagament) : El client pot escollir entre\ntargeta bancària o PayPal.
+
+(Realitza pagament)-->(Pagament correcte)
+(Pagament correcte)-->(Segueix enviament)
+(Segueix enviament)-->GM
+
+(Segueix enviament)-->(Rep comanda)
+(Rep comanda)-->A1
+
+note left of A1 : La valoració inclou puntualitat,\nestat del menjar i experiència\ngeneral del servei.
+
+(A1)-->(Finalitza procés)
+(Finalitza procés)-->CL
+
+note bottom : Si hi ha algun problema
+
+(Realitza pagament)-->(Error de pagament)
+(Error de pagament)-->(Reintenta pagament)
+(Reintenta pagament)-->(Realitza pagament)
+
+(Consulta menús)-->(Cuiner no disponible)
+(Cuiner no disponible)-->A2
+(A2)-->(Ofereix altres cuiners)
+(A2)-->(Reserva per més tard)
+(Ofereix altres cuiners)-->(Consulta menús)
+(Reserva per més tard)-->CL
+
+note right of A2 : El sistema ofereix cuiners\nsimilars o la possibilitat\nde fer una reserva.
+
+CL-up->(Modifica perfil)
+CL-up->(Consulta historial)
+CL-up->(Xateja amb cuiner)
+(Xateja amb cuiner)-->CK
+CL-up->(Es subscriu al pla)
+(Es subscriu al pla)-->BA
+
+(Realitza pagament) .> (Autentificació i realització pagament) : <<include>>
+(Rep comanda) .> (Valoració del servei) : <<extend>>
+(Consulta menús) .> (Proposta d'alternatives) : <<extend>>
+(Rep notificació de comanda) .> (Notificació) : <<include>>
+(Finalitza servei) .> (Notificació) : <<include>>
+(A2) .> (Notificació) : <<extend>>
+@enduml
