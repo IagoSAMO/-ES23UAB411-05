@@ -1,6 +1,6 @@
 @startuml
 
-' Definició de la classe abstracta base Usuari
+
 abstract class Usuari {
   -id: String
   -nom: String
@@ -15,7 +15,7 @@ abstract class Usuari {
   +canviarContrasenya(): void
 }
 
-' Subclasses d’Usuari (herència)
+
 class Client extends Usuari {
   -restriccionsAlimentàries: List<String>
   -adrecesEntrega: List<Adreça>
@@ -69,7 +69,7 @@ class Desenvolupador extends Usuari {
   +actualitzarSistema(): void
 }
 
-' Classes principals del sistema
+
 class Comanda {
   -id: String
   -dataCreacio: Date
@@ -159,7 +159,7 @@ class GoogleMaps {
   +traçarRutaOptima(punts: List<Coordenades>): Ruta
 }
 
-' Enumeracions
+
 enum EstatComanda {
   CREAT
   ACCEPTAT
@@ -205,7 +205,7 @@ enum NivellAcces {
   ADMINISTRADOR
 }
 
-' Relacions entre classes
+
 Client "1" -- "0..*" Comanda: realitza >
 Cuiner "1" -- "0..*" Plat: publica >
 Comanda "1" o-- "1..*" LiniaComanda: conté >
