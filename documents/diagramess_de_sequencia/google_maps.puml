@@ -1,0 +1,40 @@
+@startuml
+title Diagrama de Seqüència - Escenari "Seguiment d'Entrega en Temps Real" (Google Maps)
+
+actor "Client" as C
+participant ":InterfícieClient" as IU
+participant ":GestorSeguiment" as GS
+participant ":GoogleMaps" as GM
+participant ":InterfícieRepartidor" as IR
+
+== Inici del Seguiment ==
+C -> IU: sol·licitarSeguiment()
+IU -> GS: iniciarSeguiment(comanda)
+GS -> GM: obtenirUbicacioRepartidor()
+GM -> GS: retornarUbicacio()
+GS -> GM: calcularRuta(origen, destinacio)
+GM -> GS: retornarRutaCalculada()
+GS -> IU: mostrarSeguimentInicialitzat()
+
+== Seguiment en Temps Real ==
+loop [Mentre entrega en curs]
+    GM -> GS: actualitzarUbicacioTempsReal()
+    GS -> IU: actualitzarMapaClient()
+
+    alt [Canvis de trànsit]
+        GM -> GS: detectarCanviTrafic()
+        GS -> GM: recalcularRuta()
+        GM -> IR: actualitzarRutaRepartidor()
+    end
+
+    alt [Aproximació destí]
+        GM -> GS: detectarAproximacio()
+        GS -> IU: mostrarNotificacioArribada()
+    end
+end
+
+== Finalització ==
+GM -> GS: confirmarArribadaDestinacio()
+GS -> IU: mostrarConfirmacioArribada()
+
+@enduml
