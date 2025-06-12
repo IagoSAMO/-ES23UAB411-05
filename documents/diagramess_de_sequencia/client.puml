@@ -1,0 +1,39 @@
+@startuml
+title Diagrama de Seqüència - Escenari "Realitzar Comanda" (Client)
+
+actor "Client" as C
+participant ":InterfícieUsuari" as IU
+participant ":GestorMenu" as GM
+participant ":GestorComandes" as GC
+participant ":GestorPagaments" as GP
+participant ":EntitatBancària" as EB
+
+== Consulta i Selecció de Menú ==
+C -> IU: consultarMenús()
+IU -> GM: obtenirMenúsDisponibles()
+GM -> IU: mostrarLlistatPlats()
+
+C -> IU: seleccionarPlat(plat)
+IU -> GM: validarSeleccio(plat)
+GM -> IU: mostrarDisponibilitat()
+
+== Configuració de Comanda ==
+C -> IU: confirmarComanda()
+IU -> GC: crearComanda(detalls)
+GC -> IU: mostrarResum()
+
+== Processament del Pagament ==
+C -> IU: procedir al pagament()
+IU -> GP: iniciarPagament(comanda, dades)
+GP -> EB: processarPagament(quantitat)
+EB -> GP: confirmarPagament()
+GP -> IU: mostrarConfirmacioComanda()
+
+== Seguiment de Comanda ==
+GC -> IU: mostrarEstatActual()
+
+C -> IU: sol·licitarSeguiment()
+IU -> GC: obtenirEstatComanda()
+GC -> IU: mostrarSeguimentTempsReal()
+
+@enduml
