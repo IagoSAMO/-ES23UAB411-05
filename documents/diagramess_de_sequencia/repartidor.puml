@@ -1,0 +1,38 @@
+@startuml
+title Diagrama de Seqüència - Escenari "Gestió d'Entrega" (Repartidor)
+
+actor "Repartidor" as R
+participant ":InterfícieRepartidor" as IR
+participant ":GestorEntrega" as GE
+participant ":InterfícieCuiner" as IC
+participant ":InterfícieClient" as IU
+participant ":GoogleMaps" as GM
+
+== Recepció de Comanda ==
+GE -> IR: notificarNovaComanda(detallsComanda)
+R -> IR: acceptarComanda()
+IR -> GE: confirmarAcceptacio()
+GE -> IR: mostrarComandaAssignada()
+
+== Navegació i Recollida ==
+IR -> GM: calcularRutaRecollida(adreca_cuiner)
+GM -> IR: mostrarRuta()
+
+R -> IR: confirmarArribadaCuiner()
+IR -> IC: notificarArribadaRepartidor()
+IC -> IR: confirmarEntregaComanda()
+IR -> GE: actualitzarEstat("RECOLLIDA")
+
+== Entrega al Client ==
+IR -> GM: calcularRutaEntrega(adreca_client)
+GM -> IR: mostrarRutaEntrega()
+IR -> GE: actualitzarEstat("EN_RUTA_ENTREGA")
+GE -> IU: notificarEstatClient()
+
+R -> IR: confirmarArribadaClient()
+IR -> IU: notificarArribadaRepartidor()
+R -> IR: confirmarEntrega()
+IR -> GE: finalitzarEntrega()
+GE -> IU: confirmarEntregaCompletada()
+
+@enduml
