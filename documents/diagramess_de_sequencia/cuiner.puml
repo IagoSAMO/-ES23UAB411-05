@@ -1,0 +1,42 @@
+@startuml
+title Diagrama de Seqüència - Escenari "Gestió de Comandes" (Cuiner)
+
+actor "Cuiner" as CU
+participant ":InterfícieCuiner" as IC
+participant ":GestorPlats" as GP
+participant ":GestorComandes" as GC
+participant ":InterfícieClient" as IU
+participant ":GestorEntrega" as GE
+
+== Publicació de Plats ==
+CU -> IC: accedirPerfil()
+IC -> GP: publicarPlat(detallsPlat, ingredients, preu)
+GP -> GP: validarDadesPlat()
+GP -> GP: afegirPlatACataleg()
+GP -> IC: mostrarConfirmacio()
+
+== Recepció i Gestió de Comandes ==
+GC -> IC: notificarNovaComanda(detallsComanda)
+
+alt [Cuiner accepta]
+    CU -> IC: acceptarComanda()
+    IC -> GC: confirmarAcceptacio()
+    GC -> IU: notificarAcceptacioClient()
+    GC -> IC: mostrarEstatPreparacio()
+else [Cuiner rebutja]
+    CU -> IC: rebutjarComanda()
+    IC -> GC: processarRebuig()
+    GC -> IU: notificarRebuigClient()
+end
+
+== Preparació i Finalització ==
+CU -> IC: actualitzarProgres()
+IC -> GC: actualitzarEstatComanda()
+GC -> IU: mostrarProgresClient()
+
+CU -> IC: finalitzarPreparacio()
+IC -> GC: marcarPlatLlest()
+GC -> GE: buscarRepartidor()
+GE -> IC: mostrarRepartidorAssignat()
+
+@enduml
