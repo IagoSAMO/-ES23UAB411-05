@@ -1,0 +1,47 @@
+@startuml
+title Diagrama de Seqüència - Escenari "Processament de Pagament"
+
+actor "Client" as C
+participant ":InterfícieUsuari" as IU
+participant ":GestorPagaments" as GP
+participant ":EntitatBancària" as EB
+participant ":GestorComandes" as GC
+participant ":InterfícieCuiner" as IC
+participant ":InterfícieRepartidor" as IR
+
+== Inici del pagament ==
+C -> IU: seleccionarMètodePagament()
+IU -> GP: iniciarPagament(comanda, mètodePagament)
+GP -> EB: processarPagament(dadesPagament, quantitat)
+
+== Autenticació del pagament ==
+EB -> EB: autenticarPagament(dadesPagament)
+
+alt [Pagament correcte]
+    EB -> GP: confirmarPagament(codiTransacció)
+    GP -> EB: generarJustificant(codiTransacció)
+    EB -> GP: retornarJustificant()
+
+    == Distribució de fonds ==
+    GP -> GP: calcularComissions()
+    GP -> EB: transferirFons(cuiner, quantitatCuiner)
+    EB -> IC: mostrarPagamentRebut(quantitat)
+    GP -> EB: transferirFonds(repartidor, quantitatRepartidor)
+    EB -> IR: mostrarPagamentRebut(quantitat)
+
+    == Confirmació al client ==
+    GP -> IU: mostrarConfirmacioExitosa(justificant)
+    GP -> GC: activarComanda(comanda)
+
+else [Error en el pagament]
+    EB -> GP: retornarError(missatgeError)
+    GP -> IU: mostrarMissatgeError()
+
+    opt [Client vol reintentar]
+        C -> IU: reintentarPagament()
+        IU -> GP: iniciarPagament(comanda, mètodePagament)
+        note right: Es repeteix el procés de pagament
+    end
+end
+
+@enduml
